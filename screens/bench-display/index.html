@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bench Display</title>
+
+    <script type="text/javascript" src="/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/json/core.js"></script>
+  </head>
+  <body
+    sbPrefix="&: ScoreBoard.Settings.Setting(ScoreBoard.View : )"
+  >
+    <div class="MainContent">
+      <div
+        class="ScorePane"
+        id="scoreboard"
+        sbContext="ScoreBoard.CurrentGame"
+        class="JamScore"
+      >
+        <div class="DotTimeouts Team" sbContext="Team(1)" team="1">
+          <div class="Dot Timeout1" sbClass="Used: Timeouts: <1"></div>
+          <div class="Dot Timeout2" sbClass="Used: Timeouts: <2"></div>
+          <div class="Team Team1 Dot Timeout3" sbClass="Used: Timeouts: <3"></div>
+          <div
+            class="Dot OfficialReview1"
+            sbClass="Retained: RetainedOfficialReview | Used: OfficialReviews: <1"
+          ></div>
+        </div>
+        <div
+          sbContext="Team(1)"
+          style="display: flex; flex-direction: row; gap: .5em; flex-grow: 1; align-items: baseline; justify-content: center;"
+        >
+          <div class="Score Box AutoFit" sbDisplay="Score" style="font-size: 32pt; font-weight: bold;"></div>
+          <div class="JamScore Box AutoFit" sbDisplay="JamScore" style="font-size: 20pt;" sbClass="NoInitial: NoInitial | Overtime: /ScoreBoard.CurrentGame.InOvertime"></div>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div class="Clock Period Large" sbContext="Clock(Period)">
+            <div style="font-weight: bold;">Period</div>
+            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          </div>
+          <div class="ShowInLineup Clock Lineup Large" sbContext="Clock(Lineup)">
+            <div style="font-weight: bold;">Lineup</div>
+            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          </div>
+          <div class="ShowInJam Clock Jam Large" sbContext="Clock(Jam)">
+            <div style="font-weight: bold;">Jam</div>
+            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          </div>
+          <div class="ShowInTimeout Clock Timeout Large" sbContext="Clock(Timeout)">
+            <div style="font-weight: bold;">Timeout</div>
+            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          </div>
+        </div>
+        <div
+          sbContext="Team(2)"
+          style="display: flex; flex-direction: row; gap: .5em; flex-grow: 1; align-items: baseline; justify-content: center;"
+        >
+          <div class="Score Box AutoFit" sbDisplay="Score" style="font-size: 32pt; font-weight: bold;"></div>
+          <div class="JamScore Box AutoFit" sbDisplay="JamScore" style="font-size: 20pt;" sbClass="NoInitial: NoInitial | Overtime: /ScoreBoard.CurrentGame.InOvertime"></div>
+        </div>
+        <div class="DotTimeouts Team" sbContext="Team(2)" team="2">
+          <div class="Dot Timeout1" sbClass="Used: Timeouts: <1"></div>
+          <div class="Dot Timeout2" sbClass="Used: Timeouts: <2"></div>
+          <div class="Dot Timeout3" sbClass="Used: Timeouts: <3"></div>
+          <div
+            class="Dot OfficialReview1"
+            sbClass="Retained: RetainedOfficialReview | Used: OfficialReviews: <1"
+          ></div>
+        </div>
+      </div>
+      <div class="sbSegmentGroup" sbSheetStyle="whiteboard" sbContext="ScoreBoard.CurrentGame">
+        <div style="display: flex; flex-direction: row; gap: 0.5em">
+          <div sbForeach="Team: 1,2: only" sbInclude="/components/plt-input/"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
