@@ -34,20 +34,20 @@
         </div>
         <div style="display: flex; flex-direction: column;">
           <div class="Clock Period Large" sbContext="Clock(Period)">
-            <div style="font-weight: bold;">Period</div>
-            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+            <span style="font-weight: bold; white-space: nowrap;">Period <span sbDisplay="Number">0</span></span>
+            <span class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></span>
           </div>
-          <div class="ShowInLineup Clock Lineup Large" sbContext="Clock(Lineup)">
-            <div style="font-weight: bold;">Lineup</div>
-            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          <div class="Large" style="white-space: nowrap;" sbClass="sbHide: Running: == false" sbContext="Clock(Lineup)">
+            <span style="font-weight: bold; white-space: nowrap;">Lineup (Jam <span sbDisplay="/ScoreBoard.CurrentGame.Clock(Jam).Number"></span>)</span>
+            <span class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></span>
           </div>
-          <div class="ShowInJam Clock Jam Large" sbContext="Clock(Jam)">
-            <div style="font-weight: bold;">Jam</div>
-            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          <div class="Large" style="white-space: nowrap;" sbClass="sbHide: Running: == false" sbContext="Clock(Jam)">
+            <span style="font-weight: bold; white-space: nowrap;">Jam <span sbDisplay="Number">0</span></span>
+            <span class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></span>
           </div>
-          <div class="ShowInTimeout Clock Timeout Large" sbContext="Clock(Timeout)">
-            <div style="font-weight: bold;">Timeout</div>
-            <div class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></div>
+          <div class="Large" style="white-space: nowrap;" sbClass="sbHide: Running: == false" sbContext="Clock(Timeout)">
+            <span style="font-weight: bold; white-space: nowrap;">Timeout (Jam <span sbDisplay="/ScoreBoard.CurrentGame.Clock(Jam).Number"></span>)</span>
+            <span class="Time sbClock" sbDisplay="Time, Direction: sbToTime"></span>
           </div>
         </div>
         <div
